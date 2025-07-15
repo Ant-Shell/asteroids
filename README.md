@@ -6,6 +6,7 @@
 ## Setup
 1) [Clone repo locally](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 2) Ensure that [uv](https://github.com/astral-sh/uv) is installed
+3) Ensure that [Python 3.x](https://www.python.org/downloads/) is installed
 
 ## Usage:
 - To run, use the command: `uv run main.py`
