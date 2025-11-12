@@ -5,6 +5,7 @@ from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from shot import Shot
 import sys
+from logger import log_state, log_event
 
 def main():
   pygame.init()
@@ -26,10 +27,15 @@ def main():
 
   dt = 0
   print("Starting Asteroids!")
+  print(f"Screen width: {SCREEN_WIDTH}")
+  print(f"Screen height: {SCREEN_HEIGHT}")
 
   while True:
     for event in pygame.event.get():
-      if event.type == pygame.QUIT:
+      if event.type == pygame.KEYDOWN:
+        log_event("KEYDOWN", key=pygame.key.name(event.key))
+      elif event.type == pygame.QUIT:
+        log_event("QUIT")
         return
 
     updatable.update(dt)
@@ -53,6 +59,7 @@ def main():
     pygame.display.flip()
 
     dt = clock.tick(60) / 1000
+    log_state()
 
 
 if __name__ == "__main__":
